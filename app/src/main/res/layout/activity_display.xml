@@ -23,8 +23,8 @@
         android:layout_width="70dp"
         android:layout_height="130dp"
         android:background="#3F51B5"
-        android:text="@string/gallery_button"
         android:padding="0dp"
+        android:text="@string/gallery_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/displayHomeButton" />
 
@@ -34,8 +34,8 @@
         android:layout_width="70dp"
         android:layout_height="130dp"
         android:background="#3F51B5"
-        android:text="@string/about_button"
         android:padding="0dp"
+        android:text="@string/about_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/displayGalleryButton" />
 
@@ -59,15 +59,15 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:text="Placeholder"
+        android:text="species_name_here"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/displayHomeButton"
-        app:layout_constraintTop_toBottomOf="@+id/displayPhotoID" />
+        app:layout_constraintTop_toBottomOf="@+id/displayPhotoName" />
 
     <ImageView
-        android:id="@+id/displaySpeciesImage"
+        android:id="@+id/displayPhoto"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="40dp"
@@ -83,27 +83,29 @@
         android:layout_width="333dp"
         android:layout_height="162dp"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/displayDeleteButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/displayAboutButton"
-        app:layout_constraintTop_toBottomOf="@+id/displaySpeciesImage" />
+        app:layout_constraintTop_toBottomOf="@+id/displayPhoto"
+        tools:text="www.Wikipeadia.com/spider-species\n\n Put spider description here" />
 
     <Button
         android:id="@+id/displayDeleteButton"
-        android:layout_width="247dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/display_delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/displayBlank" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/displayBlank"
+        app:layout_constraintTop_toBottomOf="@+id/displayChangeNameButton" />
 
     <TextView
-        android:id="@+id/displayPhotoID"
+        android:id="@+id/displayPhotoName"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
@@ -113,5 +115,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/displayHomeButton"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/displayChangeNameButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/display_change_name"
+        app:layout_constraintBottom_toTopOf="@+id/displayDeleteButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/displayBlank"
+        app:layout_constraintTop_toBottomOf="@+id/displaySpeciesDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

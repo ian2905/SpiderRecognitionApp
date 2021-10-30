@@ -31,10 +31,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gallerySpeciesButton" />
+        app:layout_constraintTop_toBottomOf="@+id/galleryNameButton" />
 
     <Button
-        android:id="@+id/gallerySpeciesButton"
+        android:id="@+id/galleryNameButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -43,5 +43,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/galleryImage" />
+
+    <TextView
+        android:id="@+id/galleryIndex"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="#"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/galleryImage"
+        app:layout_constraintEnd_toStartOf="@+id/galleryImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/galleryImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Test</string>
+    <string name="app_name">SpiderRecognition</string>
     <string name="home_button">Home</string>
     <string name="gallery_button">Gallery</string>
     <string name="about_button">About</string>
@@ -8,6 +8,7 @@
     <string name="upload_photo">Upload Photo</string>
     <string name="processing">Processing</string>
     <string name="display_delete">Delete</string>
+    <string name="display_change_name">Change Name</string>
     <string name="check_image">Process this image?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
