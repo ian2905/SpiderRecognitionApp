@@ -25,7 +25,7 @@ public class AboutActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent homeIntent = new Intent(AboutActivity.this, HomeActivity.class);
                 startActivity(homeIntent);
-                //finish();
+                finish();
             }
         });
         aboutGalleryButton.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +33,7 @@ public class AboutActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent galleryIntent = new Intent(AboutActivity.this, GalleryActivity.class);
                 startActivity(galleryIntent);
-                //finish();
+                finish();
             }
         });
     }

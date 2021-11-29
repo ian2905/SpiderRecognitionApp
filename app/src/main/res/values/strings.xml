@@ -12,6 +12,10 @@
     <string name="check_image">Process this image?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="change">Change</string>
+    <string name="change_photo_name">Change Photo Name?</string>
+    <string name="enter_new_photo_name">Enter new name here:</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
