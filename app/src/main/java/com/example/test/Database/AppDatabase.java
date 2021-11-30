@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 //With help from Android documentation and https://medium.com/mindorks/using-room-database-android-jetpack-675a89a0e942
-@Database(entities = {Entry.class}, version = 6)
+@Database(entities = {Entry.class}, version = 7)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "spider_recognition";
     private static AppDatabase db;

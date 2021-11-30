@@ -58,7 +58,7 @@ public class DisplayActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent homeIntent = new Intent(DisplayActivity.this, HomeActivity.class);
                 startActivity(homeIntent);
-                //finish();
+                finish();
             }
         });
         displayGalleryButton.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +66,7 @@ public class DisplayActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent galleryIntent = new Intent(DisplayActivity.this, GalleryActivity.class);
                 startActivity(galleryIntent);
-                //finish();
+                finish();
             }
         });
         displayAboutButton.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +74,7 @@ public class DisplayActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent aboutIntent = new Intent(DisplayActivity.this, AboutActivity.class);
                 startActivity(aboutIntent);
-                //finish();
+                finish();
             }
         });
         displayDeleteButton.setOnClickListener(new View.OnClickListener() {
@@ -122,8 +122,10 @@ public class DisplayActivity extends AppCompatActivity {
     }
 
     private void changeName(){
-        EntryDao entryDao = db.entryDao();
-
+        Intent changeNameIntent = new Intent(DisplayActivity.this, ChangeName.class);
+        changeNameIntent.putExtra("photoID", entry.photoID);
+        startActivity(changeNameIntent);
+        finish();
     }
 
 

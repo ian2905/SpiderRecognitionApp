@@ -23,6 +23,12 @@ public interface EntryDao {
     @Query("UPDATE entry SET photo_name = (:name) WHERE photoID = (:photoID)")
     void updateName(String name, int photoID);
 
+    @Query("UPDATE entry SET species_name = (:speciesName) WHERE photoID = (:photoID)")
+    void updateSpeciesName(String speciesName, int photoID);
+
+    @Query("UPDATE entry SET description = (:description) WHERE photoID = (:photoID)")
+    void updateDescription(String description, int photoID);
+
     @Insert
     void insert(Entry entry);
 

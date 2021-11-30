@@ -57,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
     private String currentPhotoPath;
 
     private Bitmap bitmap = null;
+    private int photoID = -1;
 
     //main screen
     private Button takePhotoButton;
@@ -134,6 +135,7 @@ public class HomeActivity extends AppCompatActivity {
                 Intent sendIntent = new Intent(HomeActivity.this, SendActivity.class);
 
                 sendIntent.putExtra("bitmap", bitmap);
+                sendIntent.putExtra("photoID", photoID);
                 startActivity(sendIntent);
                 disableImageChoice();
                 enableHome();
@@ -402,6 +404,7 @@ public class HomeActivity extends AppCompatActivity {
         return image;
     }
 
+    // Save the image into the local file system and create a databas entry for the image
     private void saveImage() {
         File photoFile = null;
         try {
@@ -426,6 +429,9 @@ public class HomeActivity extends AppCompatActivity {
             Entry entry = new Entry(photoFile.getPath(), photoFile.getPath());
             entryDao.insert(entry);
 
+            // Get the photoID so that the SendActivity can find this entry
+            List<Entry> entries = entryDao.getAll();
+            photoID = entries.get(entries.size()-1).photoID;
         }
     }
 
