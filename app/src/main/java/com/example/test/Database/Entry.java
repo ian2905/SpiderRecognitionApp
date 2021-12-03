@@ -30,6 +30,9 @@ public class Entry {
     @ColumnInfo(name = "description")
     public String description;
 
+    @ColumnInfo(name = "probability")
+    public Double probability;
+
     //@ColumnInfo(name = "created_on")
     //public Date createdOn;
 

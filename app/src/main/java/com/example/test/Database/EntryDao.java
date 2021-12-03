@@ -29,6 +29,9 @@ public interface EntryDao {
     @Query("UPDATE entry SET description = (:description) WHERE photoID = (:photoID)")
     void updateDescription(String description, int photoID);
 
+    @Query("UPDATE entry SET probability = (:probability) WHERE photoID = (:photoID)")
+    void updateProbability(Double probability, int photoID);
+
     @Insert
     void insert(Entry entry);
 

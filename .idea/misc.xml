@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/clous/AndroidStudioProjects/SpiderApp/app/src/main/res/layout/activity_about.xml" value="0.32592592592592595" />
         <entry key="..\:/Users/clous/AndroidStudioProjects/SpiderApp/app/src/main/res/layout/activity_change_name.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/clous/AndroidStudioProjects/SpiderApp/app/src/main/res/layout/activity_display.xml" value="0.33" />
+        <entry key="..\:/Users/clous/AndroidStudioProjects/SpiderApp/app/src/main/res/layout/activity_display.xml" value="0.25" />
         <entry key="..\:/Users/clous/AndroidStudioProjects/SpiderApp/app/src/main/res/layout/activity_gallery.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/clous/AndroidStudioProjects/SpiderApp/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/clous/AndroidStudioProjects/SpiderApp/app/src/main/res/layout/gallery_entry.xml" value="0.36666666666666664" />

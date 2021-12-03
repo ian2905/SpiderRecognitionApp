@@ -56,20 +56,33 @@
 
     <TextView
         android:id="@+id/displaySpeciesName"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="species_name_here"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/displayProbability"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/displayHomeButton"
+        app:layout_constraintTop_toBottomOf="@+id/displayPhotoName" />
+
+    <TextView
+        android:id="@+id/displayProbability"
+        android:layout_width="40dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="40dp"
+        android:text="N/A"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/displaySpeciesName"
         app:layout_constraintTop_toBottomOf="@+id/displayPhotoName" />
 
     <ImageView
         android:id="@+id/displayPhoto"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_marginTop="40dp"
         android:background="#55312B"
         android:padding="7dp"
@@ -80,8 +93,8 @@
 
     <TextView
         android:id="@+id/displaySpeciesDescription"
-        android:layout_width="333dp"
-        android:layout_height="162dp"
+        android:layout_width="326dp"
+        android:layout_height="0dp"
         android:layout_marginTop="40dp"
         android:ems="10"
         android:gravity="start|top"

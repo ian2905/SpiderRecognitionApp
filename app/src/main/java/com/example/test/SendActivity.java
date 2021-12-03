@@ -104,7 +104,6 @@ public class SendActivity extends AppCompatActivity {
                         call.cancel();
                     }
                 });
-
             }
 
             @Override
@@ -146,6 +145,7 @@ public class SendActivity extends AppCompatActivity {
                             EntryDao entryDao = db.entryDao();
                             entryDao.updateSpeciesName(speciesName, photoID);
                             entryDao.updateName("photo" + Integer.toString(photoID), photoID);
+                            entryDao.updateProbability(probability, photoID);
 
                         } catch (IOException | JSONException e) {
                             e.printStackTrace();
@@ -153,6 +153,7 @@ public class SendActivity extends AppCompatActivity {
                         Intent displayIntent = new Intent(SendActivity.this, DisplayActivity.class);
                         displayIntent.putExtra("photoID", photoID);
                         startActivity(displayIntent);
+                        finish();
                     }
                 });
             }

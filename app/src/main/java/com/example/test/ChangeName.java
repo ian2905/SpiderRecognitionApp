@@ -1,10 +1,13 @@
 package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -21,6 +24,7 @@ public class ChangeName extends AppCompatActivity {
     Button changeButton;
     Button cancelButton;
     EditText changeNameEditText;
+    ConstraintLayout changeNameLayout;
 
     Entry entry;
 
@@ -36,6 +40,7 @@ public class ChangeName extends AppCompatActivity {
         changeButton = (Button)findViewById(R.id.changeButton);
         cancelButton = (Button)findViewById(R.id.cancelButton);
         changeNameEditText = (EditText)findViewById(R.id.changeNameEditText);
+        changeNameLayout = (ConstraintLayout)findViewById(R.id.changeNameLayout);
 
         Intent i = this.getIntent();
         photoID = i.getIntExtra("photoID", photoID);
@@ -62,6 +67,23 @@ public class ChangeName extends AppCompatActivity {
                 displayIntent.putExtra("photoID", entry.photoID);
                 startActivity(displayIntent);
                 finish();
+            }
+        });
+        changeNameEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeNameEditText.setText("");
+            }
+        });
+        changeNameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // From Reto Meier via https://stackoverflow.com/questions/1109022/how-do-you-close-hide-the-android-soft-keyboard-programmatically
+                View view = ChangeName.this.getCurrentFocus();
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
             }
         });
     }

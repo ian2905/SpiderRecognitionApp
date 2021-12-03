@@ -46,8 +46,6 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    //TODO: close each activity after calling a new one
-
 
     public static final int REQUEST_IMAGE_CAPTURE = 101;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;

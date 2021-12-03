@@ -26,6 +26,7 @@ public class DisplayActivity extends AppCompatActivity {
     private TextView displayPhotoName;
     private TextView displaySpeciesName;
     private TextView displaySpeciesDescription;
+    private TextView displayProbability;
     private ImageView displayPhoto;
 
     Entry entry;
@@ -51,6 +52,7 @@ public class DisplayActivity extends AppCompatActivity {
         displaySpeciesName = (TextView)findViewById(R.id.displaySpeciesName);
         displaySpeciesDescription = (TextView)findViewById(R.id.displaySpeciesDescription);
         displayPhoto = (ImageView)findViewById(R.id.displayPhoto);
+        displayProbability = (TextView)findViewById(R.id.displayProbability);
 
 
         displayHomeButton.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +107,9 @@ public class DisplayActivity extends AppCompatActivity {
         }
         if(entry.description != null){
             displaySpeciesDescription.setText(entry.description);
+        }
+        if(entry.probability != null){
+            displayProbability.setText(String.format("%.2f", entry.probability));
         }
         displayPhoto.setImageBitmap(BitmapFactory.decodeFile(entry.path));
 

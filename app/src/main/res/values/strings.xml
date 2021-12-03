@@ -16,6 +16,14 @@
     <string name="change">Change</string>
     <string name="change_photo_name">Change Photo Name?</string>
     <string name="enter_new_photo_name">Enter new name here:</string>
+    <string name="about_page">
+        "Created by Ian Clouston.\n"
+        "Githubs:\n"
+        "\thttps://github.com/ian2905/SpiderRecognitionApp\n"
+        "\thttps://github.com/ian2905/SpiderImageRecognition\n\n"
+        "This is a deep learning computer vision project for recognizing spiders from images. This app connects to a Python+Flask backend that runs the images sent to it through an Exception network checking for X specices of spider\n\n"
+        "Species covered:\n"
+    </string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
