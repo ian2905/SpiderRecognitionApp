@@ -94,7 +94,7 @@
     <TextView
         android:id="@+id/displaySpeciesDescription"
         android:layout_width="316dp"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
@@ -127,7 +127,7 @@
         android:layout_marginTop="40dp"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/displayHomeButton"
         app:layout_constraintTop_toTopOf="parent" />
