@@ -136,7 +136,7 @@ public class SendActivity extends AppCompatActivity {
                             // JSON assistance from https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java
                             JSONObject results = new JSONObject(jsonResponse);
                             Boolean spider = results.getBoolean(    "success");
-                            String speciesName = "Species unrecognizable/No spider in photo";
+                            String speciesName = "Species unrecognizable";
                             Double probability = 0.0;
                             JSONObject classInstance;
                             if (spider) {
