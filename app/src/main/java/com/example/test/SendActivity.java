@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -50,6 +52,12 @@ public class SendActivity extends AppCompatActivity {
         db = AppDatabase.getInstance(SendActivity.this);
 
         processingImage = (ImageView)findViewById(R.id.processingImage);
+
+        int sdk = Build.VERSION.SDK_INT;
+        if(sdk > 8){
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         //url = "http://localhost:5005/predict";
         url = "http://192.168.0.4:5005/predict";
