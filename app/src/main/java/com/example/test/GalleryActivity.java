@@ -33,7 +33,6 @@ public class GalleryActivity extends AppCompatActivity {
 
     List<Entry> entries;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,19 +62,9 @@ public class GalleryActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                EntryDao entryDao = db.entryDao();
-                entries = entryDao.getAll();
-            }
-        });
-         */
-
         updateFeed();
 
-        testAdd();
+        //testAdd();
     }
 
     public void updateFeed(){
@@ -88,6 +77,7 @@ public class GalleryActivity extends AppCompatActivity {
         }
     }
 
+    // Adds in a few entries to the gallery as filler
     public void testAdd(){
         //XmlPullParser parser = getResources().getXml(R.layout.gallery_entry);
         //ConstraintLayout newAddition = new ConstraintLayout(GalleryActivity.this, );

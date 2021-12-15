@@ -47,7 +47,6 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
 
-    public static final int REQUEST_IMAGE_CAPTURE = 101;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
 
     private static final int nnWidth = 240;
@@ -104,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
         uploadPhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choosephoto();
+                choosePhoto();
             }
         });
         homeGalleryButton.setOnClickListener(new View.OnClickListener() {
@@ -151,59 +150,25 @@ public class HomeActivity extends AppCompatActivity {
 
         disableImageChoice();
         enableHome();
-
-
-        //initilize first gallery_entry
-        //setContentView(R.layout.gallery_entry);
     }
 
     //onClick method for taking a photo
     private void takePhoto(){
         if(checkAndRequestPermissions(HomeActivity.this)){
             Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-
-            /*
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-
-                //add file to gallery
-                try {
-                    galleryAddPic();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-
-                Uri photoUri = FileProvider.getUriForFile(HomeActivity.this, "com.example.test.fileprovider", photoFile);
-                takePicture.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                startActivityForResult(takePicture, 0);
-            }
-             */
-
-
-
-            //File f = new File(currentPhotoPath);
-
-            //Uri photoUri = Uri.fromFile(f);
-            //takePicture.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
             startActivityForResult(takePicture, 0);
         }
     }
 
     //onClick method for selecting a photo
-    private void choosephoto(){
+    private void choosePhoto(){
         if(checkAndRequestPermissions(HomeActivity.this)){
             Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(pickPhoto , 1);
         }
     }
-
+    // checkAndRequestPermisions and onRequestPermissionsResult from
+    // Ayush Gemini of Analytics Vidyha via https://medium.com/analytics-vidhya/how-to-take-photos-from-the-camera-and-gallery-on-android-87afe11dfe41
     // function to check permission
     public static boolean checkAndRequestPermissions(final Activity context) {
         int WExtstorePermission = ContextCompat.checkSelfPermission(context,
@@ -261,13 +226,6 @@ public class HomeActivity extends AppCompatActivity {
 
                         bitmap = (Bitmap) data.getExtras().get("data");
                         checkImage.setImageBitmap(bitmap);
-
-                        //add file to gallery
-                        //try {
-                        //    galleryAddPic();
-                        //} catch (IOException ex) {
-                        //    ex.printStackTrace();
-                        //}
 
                         //flip the page to the verification choice
                         disableHome();
@@ -354,35 +312,6 @@ public class HomeActivity extends AppCompatActivity {
         noProcessButton.setVisibility(View.VISIBLE);
     }
 
-    //From Ketul Patel on https://github.com/ketulpatel/SaveImagetoGallery/blob/master/Source%20Code.txt
-    private void saveToGallery(Bitmap bitmap){
-
-        FileOutputStream outputStream = null;
-        File file = Environment.getExternalStorageDirectory();
-        File dir = new File(file.getAbsolutePath() + "/MyPics");
-        dir.mkdirs();
-
-        String filename = String.format("%d.png",System.currentTimeMillis()); //TODO: check if png is correct file format
-        File outFile = new File(dir,filename);
-        try{
-            outputStream = new FileOutputStream(outFile);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);
-        try{
-            outputStream.flush();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        try{
-            outputStream.close();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -432,62 +361,4 @@ public class HomeActivity extends AppCompatActivity {
             photoID = entries.get(entries.size()-1).photoID;
         }
     }
-
-    private void galleryAddPic() throws IOException {
-        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        File f = new File(currentPhotoPath);
-        Uri contentUri = Uri.fromFile(f);
-        mediaScanIntent.setData(contentUri);
-        this.sendBroadcast(mediaScanIntent);
-    }
-
-    /*
-    // function to let's the user to choose image from camera or gallery
-    private void chooseImage(Context context){
-        final CharSequence[] optionsMenu = {"Take Photo", "Choose from Gallery", "Exit" }; // create a menuOption Array
-        // create a dialog for showing the optionsMenu
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        // set the items in builder
-        builder.setItems(optionsMenu, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                if(optionsMenu[i].equals("Take Photo")){
-                    // Open the camera and get the photo
-                    Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-
-                    File photoFile = null;
-                    try {
-                        //photoFile = createImageFile();
-                        createImageFile();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-
-                    //add file to gallery
-                    try {
-                        galleryAddPic();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-
-                    File f = new File(currentPhotoPath);
-                    Uri photoUri = Uri.fromFile(f);
-                    takePicture.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                    startActivityForResult(takePicture, 0);
-
-                }
-                else if(optionsMenu[i].equals("Choose from Gallery")){
-                    // choose from  external storage
-                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(pickPhoto , 1);
-                }
-                else if (optionsMenu[i].equals("Exit")) {
-                    dialogInterface.dismiss();
-                }
-            }
-        });
-        builder.show();
-    }
-    */
-
 }

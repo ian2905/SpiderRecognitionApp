@@ -7,18 +7,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.test.Database.AppDatabase;
+import com.example.test.Database.Entry;
+import com.example.test.Database.EntryDao;
+
+import java.util.List;
+
 public class AboutActivity extends AppCompatActivity {
 
     private Button aboutHomeButton;
     private Button aboutGalleryButton;
+    private Button aboutEmptyDatabase;
+
+    AppDatabase db;
+    List<Entry> entries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        db = AppDatabase.getInstance(AboutActivity.this);
+
         aboutHomeButton = (Button)findViewById(R.id.aboutHomeButton);
         aboutGalleryButton = (Button)findViewById(R.id.aboutGalleryButton);
+        aboutEmptyDatabase = (Button)findViewById(R.id.aboutEmptyDatabase);
 
         aboutHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,5 +49,21 @@ public class AboutActivity extends AppCompatActivity {
                 finish();
             }
         });
+        aboutEmptyDatabase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emptyDatabase();
+            }
+        });
+    }
+
+    private void emptyDatabase(){
+        EntryDao entryDao = db.entryDao();
+        entries = entryDao.getAll();
+        if(entries != null){
+            for (Entry e : entries){
+                entryDao.delete(e);
+            }
+        }
     }
 }

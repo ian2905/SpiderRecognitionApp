@@ -28,8 +28,6 @@ public class ChangeName extends AppCompatActivity {
 
     Entry entry;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

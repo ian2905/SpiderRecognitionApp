@@ -146,12 +146,6 @@ public class DisplayActivity extends AppCompatActivity {
         displayPhoto.setImageBitmap(BitmapFactory.decodeFile(entry.path));
         displayWikiLinkButton.setText(displayWikiLinkButton.getText().toString() + urls.get(entry.speciesName));
         displaySpeciesDescription.setText(tempDescriptions.get(entry.speciesName));
-
-        //getBodyText(urls.get(entry.speciesName));
-
-
-        //photoName = i.getStringExtra("photoName");
-        //displayPhotoID.setText(photoName);
     }
 
     private void delete(){
@@ -177,7 +171,7 @@ public class DisplayActivity extends AppCompatActivity {
                 final StringBuilder builder = new StringBuilder();
 
                 try {
-                    String url="https://en.wikipedia.org/wiki/" + species;//your website url
+                    String url="https://en.wikipedia.org/wiki/" + species;
                     Document doc = Jsoup.connect(url).get();
 
                     Element body = doc.body();
