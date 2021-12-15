@@ -94,14 +94,15 @@
     <TextView
         android:id="@+id/displaySpeciesDescription"
         android:layout_width="316dp"
-        android:layout_height="99dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:scrollbars="vertical"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/displayChangeNameButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/displayWikiLinkButton"
         app:layout_constraintTop_toBottomOf="@+id/displayWikiLinkButton"
         tools:text="www.Wikipeadia.com/spider-species\n\n Put spider description here" />
@@ -148,11 +149,11 @@
         android:id="@+id/displayWikiLinkButton"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
         android:text="@string/wiki_link_default"
         android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/displaySpeciesDescription"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/displayAboutButton"
         app:layout_constraintTop_toBottomOf="@+id/displayPhoto" />
 
