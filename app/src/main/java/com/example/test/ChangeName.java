@@ -35,18 +35,20 @@ public class ChangeName extends AppCompatActivity {
 
         db = AppDatabase.getInstance(ChangeName.this);
 
+        // Get views
         changeButton = (Button)findViewById(R.id.changeButton);
         cancelButton = (Button)findViewById(R.id.cancelButton);
         changeNameEditText = (EditText)findViewById(R.id.changeNameEditText);
         changeNameLayout = (ConstraintLayout)findViewById(R.id.changeNameLayout);
 
+        // Get the ID of the database entry you are looking at, then load that entry
         Intent i = this.getIntent();
         photoID = i.getIntExtra("photoID", photoID);
 
         EntryDao entryDao = db.entryDao();
         entry = entryDao.getEntry(photoID);
 
-
+        // Set onClicks
         changeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

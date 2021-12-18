@@ -40,11 +40,13 @@ public class GalleryActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(GalleryActivity.this);
 
+        // Get views
         feed = (LinearLayout) findViewById(R.id.galleryLinearFeed);
 
         galleryHomeButton = (Button)findViewById(R.id.galleryHomeButton);
         galleryAboutButton = (Button)findViewById(R.id.galleryAboutButton);
 
+        // Set onClicks
         galleryHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +69,7 @@ public class GalleryActivity extends AppCompatActivity {
         //testAdd();
     }
 
+    // Grabs all database entries and fills in the feed
     public void updateFeed(){
         EntryDao entryDao = db.entryDao();
         entries = entryDao.getAll();

@@ -62,6 +62,7 @@ public class DisplayActivity extends AppCompatActivity {
         setUrls();
         setDescriptions();
 
+        // Get view instances
         displayHomeButton = (Button)findViewById(R.id.displayHomeButton);
         displayGalleryButton = (Button)findViewById(R.id.displayGalleryButton);
         displayAboutButton = (Button)findViewById(R.id.displayAboutButton);
@@ -78,7 +79,7 @@ public class DisplayActivity extends AppCompatActivity {
         displaySpeciesDescription.setMovementMethod(new ScrollingMovementMethod());
         displayWikiLinkButton.setMovementMethod(new LinkMovementMethod());
 
-
+        // Set onClicks
         displayHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,7 +133,7 @@ public class DisplayActivity extends AppCompatActivity {
         EntryDao entryDao = db.entryDao();
         entry = entryDao.getEntry(photoID);
 
-
+        // Grab entry information and populate views
         displayPhotoName.setText(entry.photoName);
         if(entry.speciesName != null){
             displaySpeciesName.setText(entry.speciesName);
@@ -148,6 +149,7 @@ public class DisplayActivity extends AppCompatActivity {
         displaySpeciesDescription.setText(tempDescriptions.get(entry.speciesName));
     }
 
+    // Deletes the current entry from the database
     private void delete(){
         EntryDao entryDao = db.entryDao();
         entryDao.delete(entry);
@@ -156,6 +158,7 @@ public class DisplayActivity extends AppCompatActivity {
         startActivity(galleryIntent);
     }
 
+    // Changes name of entry in the database
     private void changeName(){
         Intent changeNameIntent = new Intent(DisplayActivity.this, ChangeName.class);
         changeNameIntent.putExtra("photoID", entry.photoID);
@@ -164,6 +167,7 @@ public class DisplayActivity extends AppCompatActivity {
     }
 
     // By Wando located https://stackoverflow.com/questions/53915588/extract-text-from-website-in-android-studio/53915635
+    // Unused method to dynamically grab the contents of the necessary wikipedia page, future work
     private void getBodyText(String species) {
         new Thread(new Runnable() {
             @Override

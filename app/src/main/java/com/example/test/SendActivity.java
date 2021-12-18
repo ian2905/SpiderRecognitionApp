@@ -53,15 +53,18 @@ public class SendActivity extends AppCompatActivity {
 
         processingImage = (ImageView)findViewById(R.id.processingImage);
 
+        // Set the ThreadPolicy to allow for network communications on the main thread
         int sdk = Build.VERSION.SDK_INT;
         if(sdk > 8){
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
 
+        //URL will need to change based on the location of the Flask server
         //url = "http://localhost:5005/predict";
         url = "http://192.168.0.4:5005/predict";
 
+        //Get the bitmap from the intent data
         Intent i = this.getIntent();
         image = (Bitmap)i.getParcelableExtra("bitmap");
         photoID = i.getIntExtra("photoID", -1);
@@ -70,6 +73,8 @@ public class SendActivity extends AppCompatActivity {
         postRequest();
     }
 
+    // With help from Analytics Vidha via https://medium.com/analytics-vidhya/how-to-make-client-android-application-with-flask-for-server-side-8b1d5c55446e
+    // Generates the body of the request
     private RequestBody buildRequestBody(Bitmap bitmap) {
         // Convert bitmap to a jpeg and then into a byte array
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -97,6 +102,8 @@ public class SendActivity extends AppCompatActivity {
         return request;
     }
 
+    // With help from Analytics Vidha via https://medium.com/analytics-vidhya/how-to-make-client-android-application-with-flask-for-server-side-8b1d5c55446e
+    // Sends a POST request to the Flask server
     private void postRequest(){
         RequestBody requestBody = buildRequestBody(image);
         OkHttpClient okHttpClient = new OkHttpClient();

@@ -92,7 +92,7 @@ public class HomeActivity extends AppCompatActivity {
         yesProcessButton = (Button)findViewById(R.id.yesProcessButton);
         noProcessButton = (Button)findViewById(R.id.noProcessButton);
 
-        //Home page listeners
+        //Home page onClicks
         takePhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

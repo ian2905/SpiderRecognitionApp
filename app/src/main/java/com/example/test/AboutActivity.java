@@ -29,10 +29,12 @@ public class AboutActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(AboutActivity.this);
 
+        // Get instances of views
         aboutHomeButton = (Button)findViewById(R.id.aboutHomeButton);
         aboutGalleryButton = (Button)findViewById(R.id.aboutGalleryButton);
         aboutEmptyDatabase = (Button)findViewById(R.id.aboutEmptyDatabase);
 
+        // Set onClicks for views
         aboutHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +59,7 @@ public class AboutActivity extends AppCompatActivity {
         });
     }
 
+    //Removes all entries from the database
     private void emptyDatabase(){
         EntryDao entryDao = db.entryDao();
         entries = entryDao.getAll();
